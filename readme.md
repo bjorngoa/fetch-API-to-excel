@@ -1,7 +1,8 @@
 API-data-to-excel 🎉
+<br />
 A script that exports API data to excel 📝
 
-To run the code
+<ins>To run the code:</ins>
 1. cd into src folder then do node index.js in a terminal 💻
 
 
