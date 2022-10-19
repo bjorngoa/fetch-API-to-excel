@@ -15,15 +15,13 @@ const exportExcel = (data, /* newData, */ workSheetColumnNames, workSheetName, f
 
 
 const exportDataToExcel = (fetchedData, /* newData */ workSheetColumnNames, workSheetName, filePath) => {
-    /* const data = users[0]. */
+
     const data = fetchedData.results.map(el => {
         console.log(el)
-        return ["ID", el.name, "Info", el.url  /* `${user.lifespan}~ år`, user.diet */] 
+        return ["ID", el.name, "Info", el.url] 
     })
 
-   /*  const data2 = newData.map(speciesData => {
-        return ["ID", speciesData?.results?.map(l => l.name)]
-    }) */
+   
 
     exportExcel(data, /* data2 */ workSheetColumnNames, workSheetName, filePath)
 

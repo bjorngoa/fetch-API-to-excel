@@ -1,18 +1,11 @@
-
-
-/* const path = require('path') */
-
-
-
 const exportDataToExcel = require("./exportService");       
 
 
-const API_URL = "https://pokeapi.co/api/v2"  /* 'https://zoo-animal-api.herokuapp.com/animals/rand/10'  */
+const API_URL = "https://pokeapi.co/api/v2"
 
 const getApi = async (url) => {
     
     const fileName = 'pokemon'
-    let random = Math.floor(Math.random() * 99999)
     const respPokeNames = await fetch(`${url}/pokemon/`);
     let data = await respPokeNames.json();
     
@@ -20,21 +13,6 @@ const getApi = async (url) => {
     let pokeSpecies = await fetch( `${url}/pokemon-species/${pokemonId}`)
     let pokeSpeciesData = await pokeSpecies.json()
 
-
-    /* 
-
-    let pDescription = await fetch(`${url}/pokemon-species/${pokemonId}`)
-    let pokeDescription = await pDescription.json()
-    console.log(pokeDescription)
-    console.log(pDescription.status)
-    
-    let response = await fetch(`${url}/pokemon/${pokeDescription.name}`)
-    console.log(response)
-    let pokeInfo = await response.json()
-    console.log(pokeInfo)
-    const id = pokeInfo.id
-    console.log('id: ',id) */
-    
     const newData = []
     newData.push(data, pokeSpeciesData)
 
@@ -58,9 +36,3 @@ const getApi = async (url) => {
 
 getApi(API_URL);
 
-const styleId = (id) => {
-    id += 1000
-    id = id+""
-    id = id.slice(1)
-    return id
-}
